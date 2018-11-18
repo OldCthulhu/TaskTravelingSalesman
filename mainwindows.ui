@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>723</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Задача коммивояжер</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res/res.qrc">
+    <normaloff>:/iconMainWindow.png</normaloff>:/iconMainWindow.png</iconset>
+  </property>
+  <property name="windowOpacity">
+   <double>20.000000000000000</double>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="8,2">
+      <item>
+       <widget class="QGraphicsView" name="graphicsView">
+        <property name="dragMode">
+         <enum>QGraphicsView::NoDrag</enum>
+        </property>
+        <property name="resizeAnchor">
+         <enum>QGraphicsView::AnchorViewCenter</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Лог</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="te_log">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>Карта</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Число городов:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="b_generation">
+             <property name="text">
+              <string>Построение карты</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="sb_countCities">
+             <property name="minimum">
+              <number>3</number>
+             </property>
+             <property name="maximum">
+              <number>1000</number>
+             </property>
+             <property name="value">
+              <number>25</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cb_beginCity"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Начальный и конечный город:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="b_findWay">
+          <property name="text">
+           <string>Поиск пути</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="b_stop">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Остановить поиск</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="l_lengthWay">
+      <property name="text">
+       <string>Длина пути:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="textDirection">
+       <enum>QProgressBar::TopToBottom</enum>
+      </property>
+      <property name="format">
+       <string>%v Популяция</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="m_setting">
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="m_settingGeneticAlgorithm_2"/>
+    <addaction name="m_settingSleep_2"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Генетический алгоритм</string>
+    </property>
+    <addaction name="m_execGeneticAlgorithm_2"/>
+    <addaction name="m_stop"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="m_helpTask"/>
+    <addaction name="m_helpGeneticAlgorithm_2"/>
+    <addaction name="m_helpByAuthor"/>
+   </widget>
+   <addaction name="menu_2"/>
+   <addaction name="m_setting"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <action name="action">
+   <property name="text">
+    <string>Настройка карты городов</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Построение карты</string>
+   </property>
+  </action>
+  <action name="m_settingGeneticAlgorithm">
+   <property name="text">
+    <string>Найстрока алгоритма</string>
+   </property>
+  </action>
+  <action name="m_execGeneticAlgorithm">
+   <property name="text">
+    <string>Начать поиск</string>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>Об авторе</string>
+   </property>
+  </action>
+  <action name="m_settingSleep">
+   <property name="text">
+    <string>Настройка задержки</string>
+   </property>
+  </action>
+  <action name="m_settingGeneticAlgorithm_2">
+   <property name="text">
+    <string>Генетический алгоритм</string>
+   </property>
+  </action>
+  <action name="m_settingSleep_2">
+   <property name="text">
+    <string>Задержка</string>
+   </property>
+  </action>
+  <action name="m_execGeneticAlgorithm_2">
+   <property name="text">
+    <string>Запустить</string>
+   </property>
+  </action>
+  <action name="m_stop">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Остановить</string>
+   </property>
+  </action>
+  <action name="m_helpTask">
+   <property name="text">
+    <string>Задача коммивояжера</string>
+   </property>
+  </action>
+  <action name="m_helpByAuthor">
+   <property name="text">
+    <string>Об авторе</string>
+   </property>
+  </action>
+  <action name="m_helpGeneticAlgorithm_2">
+   <property name="text">
+    <string>Генетический алгоритм</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="res/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

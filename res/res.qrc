@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>1.ico</file>
+        <file>iconHelp.PNG</file>
+        <file>iconMainWindow.png</file>
+        <file>iconSetting.png</file>
+        <file>iconStatistic.png</file>
+        <file>imageGA.gif</file>
+        <file>imageHelp.gif</file>
+        <file>imageTask.jpg</file>
+    </qresource>
+</RCC>
